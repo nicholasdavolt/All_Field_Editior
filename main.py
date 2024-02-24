@@ -1,6 +1,7 @@
 import os
 from input_file import read_csv, create_record
 from record_object import Record_Object
+from data import sort_records
 
 
 def main():
@@ -21,9 +22,11 @@ def main():
         record_objects.append(create_record(row))
 
 
+    
+    sort_records(record_objects, (('hash', False), ('rev_id', True)))
+
     for record in record_objects:
         record.print_record()
-    
     
 
     
