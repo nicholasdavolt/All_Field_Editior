@@ -1,5 +1,6 @@
 import os
-from input_file import read_csv
+from input_file import read_csv, create_record
+from record_object import Record_Object
 
 
 def main():
@@ -13,8 +14,22 @@ def main():
 
     csv_contents = read_csv(file_path)
 
-    for row in csv_contents:
-        print(row)
+    record_objects = []
+
+    for i in range(1, len(csv_contents)):
+        row = csv_contents[i]        
+        record_objects.append(create_record(row))
+
+
+    for record in record_objects:
+        record.print_record()
+    
+    
+
+    
+
+
+        
     
        
     
