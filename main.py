@@ -1,7 +1,7 @@
 import os
 from input_file import read_csv, create_record
 from record_object import Record_Object
-from data import sort_records
+from data import sort_records, collate_custodians
 
 
 def main():
@@ -25,9 +25,12 @@ def main():
     
     sort_records(record_objects, (('hash', False), ('rev_id', True)))
 
-    for record in record_objects:
-        record.print_record()
-    
+    unique_custs = collate_custodians(record_objects)
+
+    print("Custodians Present:")
+
+    for cust in unique_custs:
+        print(cust)
 
     
 
