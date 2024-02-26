@@ -1,7 +1,7 @@
 import os
 from input_file import read_csv, create_record
 from record_object import Record_Object
-from data import sort_records, collate_custodians
+from data import sort_records, collate_custodians, collect_cust_exclusions
 
 
 def main():
@@ -27,10 +27,13 @@ def main():
 
     unique_custs = collate_custodians(record_objects)
 
-    print("Custodians Present:")
 
-    for cust in unique_custs:
-        print(cust)
+
+    exclude_custodians = collect_cust_exclusions(unique_custs)
+
+    if not exclude_custodians:
+        print("Continuing with no exclusions")
+    
 
     
 
