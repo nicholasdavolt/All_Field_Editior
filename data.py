@@ -56,6 +56,18 @@ def collect_cust_exclusions(custodians):
             
 
     return exclusions
+
+def exclude_cust_info(records, exclusions):
+
+    for record in records:
+        if record.custodian in exclusions:
+            record.custodian = None
+            record.path = None
+            record.removed_custodian = True
+
+            
+
+    
             
 
     

@@ -10,6 +10,7 @@ class Record_Object:
         self.path = path
         self.all_custodian = []
         self.all_path = []
+        self.removed_custodian = False
 
     def print_record(self):
         print(f"{self.proc_id}, {self.rev_id}, {self.hash}, {self.custodian}, {self.path}, {self.all_custodian}, {self.all_path}")

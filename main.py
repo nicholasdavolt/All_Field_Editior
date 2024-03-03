@@ -1,7 +1,7 @@
 import os
 from input_file import read_csv, create_record
 from record_object import Record_Object
-from data import sort_records, collate_custodians, collect_cust_exclusions
+from data import sort_records, collate_custodians, collect_cust_exclusions, exclude_cust_info
 
 
 def main():
@@ -33,7 +33,18 @@ def main():
 
     if not exclude_custodians:
         print("Continuing with no exclusions")
+    else:
+        print("Excluding Custodians:")
+
+        for cust in exclude_custodians:
+            print(cust)
     
+    exclude_cust_info(record_objects, exclude_custodians)
+
+    for record in record_objects:
+        record.print_record()
+    
+
 
     
 
