@@ -2,6 +2,7 @@ import os
 from input_file import read_csv, create_record
 from record_object import Record_Object
 from data import sort_records, collate_custodians, collect_cust_exclusions, exclude_cust_info, collate_all_custs, collate_all_paths, populate_all_path_cust
+from export_file import export_results
 
 
 def main():
@@ -45,6 +46,8 @@ def main():
     path_by_hash = collate_all_paths(record_objects)
 
     populate_all_path_cust(record_objects, cust_by_hash, path_by_hash)
+
+    export_results(record_objects)
 
     
     
